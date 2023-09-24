@@ -6,4 +6,4 @@ from django.db import models
 class Lesson(models.Model):
     title = models.CharField(max_length=64, unique=True)
     video_url = models.URLField()
-    duration = models.PositiveIntegerField()
+    duration = models.DurationField()
