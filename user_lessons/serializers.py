@@ -3,6 +3,7 @@ from .models import UserLesson
 
 
 class UserLessonSerializer(serializers.ModelSerializer):
+    # last_viewed_at = serializers.DateTimeField(source='get_last_viewed_at', read_only=True)
     class Meta:
         model = UserLesson
-        fields = '__all__'
+        fields = ['lesson', 'status', 'viewing_time', 'last_viewed_at']

@@ -24,11 +24,14 @@ from users.views import UserView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', UserView, name='users'),
-    path('products/', include('products.urls', namespace='products')),
-    path('lessons/', include('lessons.urls', namespace='lessons')),
-    path('user_lessons/', include('user_lessons.urls', namespace='user_lessons')),
+
     path('api/', include('lessons.urls')),
+    path('api/', include('products.urls')),
     path('api/', include('user_lessons.urls')),
+
+    # path('products/', include('products.urls', namespace='products')),
+    # path('lessons/', include('lessons.urls', namespace='lessons')),
+    # path('user_lessons/', include('user_lessons.urls', namespace='user_lessons')),
 
 ]
 

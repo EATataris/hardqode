@@ -22,3 +22,13 @@ class UserLessonsList(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
         return UserLesson.objects.filter(user=user)
+
+
+class ProductLessonsList(generics.ListAPIView):
+    serializer_class = UserLessonSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        product_id = self.kwargs['product_id']
+        user = self.request.user
+        return UserLesson.objects.filter(user=user, product_id=product_id)
